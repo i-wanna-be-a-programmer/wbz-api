@@ -55,7 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
     }
 
     @Override
-    public void configure(WebSecurity web) throws Exception {
+    public void configure(WebSecurity web) {
         web.ignoring().antMatchers("/**");
     }
 }

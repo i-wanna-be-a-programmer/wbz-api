@@ -4,9 +4,9 @@ import com.wbz.wbzapi.handler.exception.JwtAuthenticationException;
 import com.wbz.wbzapi.security.jwt.JwtTokenProvider;
 import com.wbz.wbzapi.service.AuthorizationService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 
-import org.springframework.http.HttpHeaders;
 import java.util.List;
 
 

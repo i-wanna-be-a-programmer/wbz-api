@@ -22,7 +22,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(new Response(e.getMessage()), HttpStatus.NOT_FOUND);
     }
 
-    //эксепшн проверки логин - пароль
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<Response> handleException(BadCredentialsException e) {
         return new ResponseEntity<>(new Response(e.getMessage()), HttpStatus.BAD_REQUEST);

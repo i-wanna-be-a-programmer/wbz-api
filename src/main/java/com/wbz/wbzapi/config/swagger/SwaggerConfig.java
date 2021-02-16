@@ -1,6 +1,5 @@
 package com.wbz.wbzapi.config.swagger;
 
-import io.swagger.v3.core.util.Constants;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;

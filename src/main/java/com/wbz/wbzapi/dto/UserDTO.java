@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.wbz.wbzapi.entity.Status;
 import lombok.Builder;
 import lombok.Data;
-
 import java.util.List;
+
 
 @Data
 @Builder

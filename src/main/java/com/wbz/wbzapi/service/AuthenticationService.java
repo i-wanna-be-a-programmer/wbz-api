@@ -1,5 +1,5 @@
 package com.wbz.wbzapi.service;
 
-public interface AutheticationService {
+public interface AuthenticationService {
     void authenticate(String login, String password);
 }

@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import java.util.List;
-import java.util.Objects;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)

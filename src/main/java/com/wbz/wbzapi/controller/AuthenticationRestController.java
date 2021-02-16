@@ -3,7 +3,7 @@ package com.wbz.wbzapi.controller;
 import com.wbz.wbzapi.dto.AuthenticationRequestDTO;
 import com.wbz.wbzapi.entity.User;
 import com.wbz.wbzapi.security.jwt.JwtTokenProvider;
-import com.wbz.wbzapi.service.AutheticationService;
+import com.wbz.wbzapi.service.AuthenticationService;
 import com.wbz.wbzapi.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -24,7 +24,7 @@ public class AuthenticationRestController {
 
     private final UserService userService;
 
-    private final AutheticationService autheticationService;
+    private final AuthenticationService authenticationService;
 
     @PostMapping("/login")
     @Operation(
@@ -34,7 +34,7 @@ public class AuthenticationRestController {
     public ResponseEntity<String> login(@RequestBody AuthenticationRequestDTO requestDTO) {
         String username = requestDTO.getUsername();
         String password = requestDTO.getPassword();
-        autheticationService.authenticate(username, password);
+        authenticationService.authenticate(username, password);
         User user = userService.findByUsername(username);
         String token = jwtTokenProvider.createToken(username, user.getRoles());
         return ResponseEntity.ok(token);
