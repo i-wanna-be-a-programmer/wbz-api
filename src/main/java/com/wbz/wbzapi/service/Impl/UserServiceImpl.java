@@ -8,9 +8,10 @@ import com.wbz.wbzapi.repository.RoleRepository;
 import com.wbz.wbzapi.repository.UserRepository;
 import com.wbz.wbzapi.service.UserService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.logging.Logger;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,8 +19,8 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class UserServiceImpl implements UserService {
+    private static final Logger LOG = Logger.getLogger(UserServiceImpl.class.getName());
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
@@ -41,14 +42,14 @@ public class UserServiceImpl implements UserService {
         userToRegister.setStatus(Status.ACTIVE);
 
         userRepository.save(userToRegister);
-        log.info("IN register - user: {} succesfully registered", userToRegister);
+        LOG.info("IN register - user: " + userToRegister + " succesfully registered");
         return userToRegister;
     }
 
     @Override
     public List<User> getAll() {
         List<User> result = userRepository.findAll();
-        log.info("IN getAll - {} users found", result.size());
+        LOG.info("IN getAll - " + result.size() + " users found");
         return result;
     }
 
@@ -73,10 +74,9 @@ public class UserServiceImpl implements UserService {
     }
 
 
-
     @Override
     public void delete(Long id) {
         userRepository.deleteById(id);
-        log.info("IN delete - user with id: {} deleted", id);
+        LOG.info("IN delete - user with id: " + id + " deleted");
     }
 }
