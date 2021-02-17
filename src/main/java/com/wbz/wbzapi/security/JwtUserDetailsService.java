@@ -5,16 +5,17 @@ import com.wbz.wbzapi.security.jwt.JwtUser;
 import com.wbz.wbzapi.security.jwt.JwtUserFactory;
 import com.wbz.wbzapi.service.UserService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.logging.Logger;
+
 @Service
-@Slf4j
 @RequiredArgsConstructor
 public class JwtUserDetailsService implements UserDetailsService {
+    private static final Logger LOG = Logger.getLogger(JwtUserDetailsService.class.getName());
 
     private final UserService userService;
 
@@ -27,7 +28,7 @@ public class JwtUserDetailsService implements UserDetailsService {
         }
 
         JwtUser jwtUser = JwtUserFactory.create(user);
-        log.info("IN loadUserByUsername - user with username: {} successfully loaded", username);
+        LOG.info("IN loadUserByUsername - user with username: " + username + " successfully loaded");
         return jwtUser;
     }
 }
